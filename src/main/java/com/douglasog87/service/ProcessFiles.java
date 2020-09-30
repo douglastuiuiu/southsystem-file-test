@@ -42,7 +42,7 @@ public class ProcessFiles {
     @PostConstruct
     public void checkAndCreatePaths() throws Exception {
         log.info("===> checkAndCreatePaths");
-        String path = env.getOrDefault(ENVIRONMENT_HOME_PATH, "~/");
+        String path = env.get(ENVIRONMENT_HOME_PATH);
         if (Objects.isNull(path)) throw new MissingEnvironmentVariableException(ENVIRONMENT_HOME_PATH);
         final List<File> folders = new ArrayList<>();
         folders.add(new File(path + DATA_IN));
@@ -59,7 +59,7 @@ public class ProcessFiles {
     private void runner() {
         info = new StringBuilder();
         info.append("\n===> running process files\n");
-        final List<File> fileListIN = getFiles(env.getOrDefault(ENVIRONMENT_HOME_PATH, "~/").concat(DATA_IN));
+        final List<File> fileListIN = getFiles(env.get(ENVIRONMENT_HOME_PATH).concat(DATA_IN));
 
         if (Objects.nonNull(fileListIN)) {
             fileListIN.stream().forEach(file -> {
@@ -67,7 +67,7 @@ public class ProcessFiles {
                 clientList = new ArrayList<>();
                 saleList = new ArrayList<>();
 
-                File fileOUT = new File(env.getOrDefault(ENVIRONMENT_HOME_PATH, "~/").concat(DATA_OUT).concat("/").concat(file.getName()).replace(".dat", ".done.dat"));
+                File fileOUT = new File(env.get(ENVIRONMENT_HOME_PATH).concat(DATA_OUT).concat("/").concat(file.getName()).replace(".dat", ".done.dat"));
 
                 if (!fileOUT.exists()) {
                     info.append("     ===> processing file " + file.getName() + "\n");

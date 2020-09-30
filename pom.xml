@@ -14,7 +14,6 @@
 	<artifactId>southsystem-file-test</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>southsystem-file-test</name>
-    <packaging>jar</packaging>
 	<description>Project for test with files to SouthSystem</description>
 
     <properties>

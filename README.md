@@ -1,9 +1,15 @@
 #Teste Técnico SouthSystem
 
-###procedimentos para execução
+##procedimentos para execução
 ##### 1 - clonar repositório
-##### 2 - buildar: mvn clean install
-##### 3 - executar: mvn spring-boot:run
+
+##### Linux/mac
+##### 2 - buildar: ./mvnw clean compile
+##### 3 - executar: ./mvnw spring-boot:run
+
+##### Windows
+##### 2 - buildar: ./mvnw.cmd clean compile
+##### 3 - executar: ./mvnw.cmd spring-boot:run
 
 ###Observação
 ##### 1 - a pasta padrão é definida com base numa varíável de ambiente com o nome "HOMEPATH". Esta precisa ser previsamente setada.
